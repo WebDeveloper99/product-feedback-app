@@ -1,6 +1,6 @@
 import React from 'react'
 import { Select } from 'antd'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { BtnWrapper, Container, TextWrapper, AddButton, Add } from './style'
 
 const Navbar = () => {
@@ -40,7 +40,7 @@ const Navbar = () => {
           </TextWrapper.SortBar>
         </TextWrapper>
         <BtnWrapper>
-          <AddButton><Add/>Add Feedback</AddButton>
+          <AddButton><Link to={'/newFeedback'}><Add/>Add Feedback</Link></AddButton>
         </BtnWrapper>
       </Container>
     </React.Fragment>

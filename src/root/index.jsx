@@ -21,6 +21,10 @@ const Root = () => {
             <Route path={'/'} element={<Suggestions/>} />
           </Route>
         </Route>
+        <Route path={'/feedbackDetail'} element={<FeedbackDetail/>} />
+        <Route path={'/newFeedback'} element={<NewFeedback/>} />
+        <Route path={'/roadMap'} element={<RoadMap/>} />
+        <Route path={'/editFeedback'} element={<EditFeedback/>} />
       </Routes>
     </Container>
   )
