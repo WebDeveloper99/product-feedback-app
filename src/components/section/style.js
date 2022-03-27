@@ -51,16 +51,24 @@ margin: 30px 0;
 `
 
 export const AntButton = styled(Button)`
-color: white;
-background: #333;
+color: var(--activeBgColor);
+background: var(--defaultBtnBgColor);
 border: none;
 border-radius: 15px;
+
+:hover{
+    background: var(--hoverBtnBgColor);
+}
+
+&:focus{
+    background:  #4661E6;
+}
 
 `
 
 
 export const SectionFooter = styled(SectionHead)`
-background: lightblue;
+background: var(--bgColor);
 display: flex;
 flex-direction: column;
 
