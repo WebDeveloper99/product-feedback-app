@@ -26,9 +26,9 @@ const Section = () => {
           Roadmap <Link to={'/roadmap'} >View</Link>
         </SectionFooter.Title>
         <SectionFooter.UL>
-          <SectionFooter.LI>Planned</SectionFooter.LI>
-          <SectionFooter.LI>In-Progress</SectionFooter.LI>
-          <SectionFooter.LI>Live</SectionFooter.LI>
+          <SectionFooter.LI>Planned <b>3</b> </SectionFooter.LI>
+          <SectionFooter.LI>In-Progress <b>2</b> </SectionFooter.LI>
+          <SectionFooter.LI>Live <b>1</b> </SectionFooter.LI>
         </SectionFooter.UL>
       </SectionFooter>
     </Container>

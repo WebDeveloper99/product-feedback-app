@@ -99,6 +99,7 @@ line-height: 28px;
 
 SectionFooter.LI = styled.li`
 display: flex;
+justify-content: space-between;
 position: relative;
 margin: 4px 0;
 

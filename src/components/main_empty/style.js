@@ -8,10 +8,6 @@ export const Container = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-/* position: absolute;
-top: 180px;
-right: 165px; */
-
 margin: 130px 0 0 50px;
 width: 1200px;
 border-radius: 15px;
