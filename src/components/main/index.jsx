@@ -5,7 +5,7 @@ import { Container } from './style'
 const Main = () => {
   return (
     <Container>
-      <Navbar/>
+      main
     </Container>
   )
 }

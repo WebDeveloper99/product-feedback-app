@@ -8,6 +8,8 @@ body {
   background: var(--bodyColor);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  
 }
 
 code {
@@ -21,7 +23,7 @@ code {
 
 
 :root{
-  --bodyColor: #F7F8FD;
+  --bodyColor: #e7eaf8;
   --btnBgColor: #AD1FEA;
   --bgColor: #FFFFFF;
   --navbarBgColor: #373F68;;

@@ -1,10 +1,12 @@
 
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 import { Container, SectionHead, SectionBody, SectionFooter, AntButton, Link } from './style'
 
 const Section = () => {
   return (
-    <Container>
+    <React.Fragment>
+      <Container>
       <SectionHead>
         <SectionHead.Title>
           <div className='title' >Frontend Mentor</div>
@@ -30,6 +32,8 @@ const Section = () => {
         </SectionFooter.UL>
       </SectionFooter>
     </Container>
+    <Outlet/>
+    </React.Fragment>
   )
 }
 

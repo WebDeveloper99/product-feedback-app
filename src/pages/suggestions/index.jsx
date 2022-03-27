@@ -7,7 +7,7 @@ import MainEmpty from '../../components/main_empty'
 const Suggestions = () => {
   return (
     <Container>
-      <Main/>
+      {/* <Main/> */}
       <MainEmpty/>
     </Container>
   )

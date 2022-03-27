@@ -7,8 +7,8 @@ export const Container = styled.div`
 display: flex;
 width: 1200px;
 height: 100px;
-margin-left: 50px;
-margin-right: 0;
+position: absolute;
+right: 165px;
 padding: 0 25px;
 border-radius: 15px;
 background: var(--navbarBgColor);
