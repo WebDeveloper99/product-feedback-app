@@ -1,9 +1,49 @@
 import React from 'react'
-import { Container } from './style'
+import { Select } from 'antd'
+import { Outlet } from 'react-router-dom'
+import { BtnWrapper, Container, TextWrapper, AddButton, Add } from './style'
 
 const Navbar = () => {
+  const { Option } = Select
+
+  function onChange(value) {
+    console.log(`selected ${value}`)
+  }
+
+  function onSearch(val) {
+    console.log('search:', val)
+  }
   return (
-    <Container>Navbar</Container>
+    <React.Fragment>
+      <Outlet />
+      <Container>
+        <TextWrapper>
+          <TextWrapper.Logo />
+          <TextWrapper.TextItem>6 Suggestions</TextWrapper.TextItem>
+          <TextWrapper.SortBar>
+            Sort by :
+            <Select
+              showSearch
+              placeholder="Most Upvotes"
+              optionFilterProp="children"
+              onChange={onChange}
+              onSearch={onSearch}
+              filterOption={(input, option) =>
+                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+              }
+            >
+              <Option value="mostUpvotes">Most Upvotes</Option>
+              <Option value="lastUpvotes">Least Upvotes</Option>
+              <Option value="mostComments">Most Comments</Option>
+              <Option value="lastcomments">Last Comments</Option>
+            </Select>
+          </TextWrapper.SortBar>
+        </TextWrapper>
+        <BtnWrapper>
+          <AddButton><Add/>Add Feedback</AddButton>
+        </BtnWrapper>
+      </Container>
+    </React.Fragment>
   )
 }
 

@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Jost', sans-serif;
+  background: var(--bodyColor);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,12 +22,12 @@ code {
 
 :root{
   --bodyColor: #F7F8FD;
-  --btnColor: #AD1FEA;
+  --btnBgColor: #AD1FEA;
   --bgColor: #FFFFFF;
-  --navbarColor: #373F68;;
+  --navbarBgColor: #373F68;;
   --titleColor:  #3A4374;
   --textColor: #647196;;
-  --defaultBtnColor: #F2F4FF;
-  --hoverBtnColor: #647196;
-  --activeColor: #4661E6;
+  --defaultBtnBgColor: #F2F4FF;
+  --hoverBtnBgColor: #647196;
+  --activeBgColor: #4661E6;
 }

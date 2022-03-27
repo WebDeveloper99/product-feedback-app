@@ -16,9 +16,9 @@ const Root = () => {
   return (
     <Container>
       <Routes>
-        <Route path={'/'} element={<Section/>} >
-          <Route path={'/'} element={<Navbar/>} >
-            <Route path={'/suggestions'} element={<Suggestions/>} />
+        <Route path={'/'} element={<Navbar/>} >
+          <Route path={'/'} element={<Section/>} >
+            <Route path={'/'} element={<Suggestions/>} />
           </Route>
         </Route>
       </Routes>
