@@ -1,23 +1,33 @@
 import React from 'react'
-import { Container, Wrapper, LikeBar, DataBar, MessageBar,Title, Discreption, DataType } from './style'
+import { Container, WrapperItem, LikeBar, LikeBtn, DataBar, MessageBar,Link, Discreption, DataType } from './style'
 
 const Main = () => {
   return (
     <React.Fragment>
       <Container>
-        <Wrapper>
-          <LikeBar>1</LikeBar>
+        <WrapperItem>
+          <LikeBar>
+            <LikeBtn>
+              <LikeBtn.LikeIcon className={'icon'} />102
+            </LikeBtn>
+          </LikeBar>
           <DataBar>
-            <Title>Q&A within the challenge hubs</Title>
+              <Link to={'/feedbackDetail'}>
+                Q&A within the challenge hubs
+              </Link>
             <Discreption>
               Challenge-specific Q&A would make for easy reference.
             </Discreption>
             <DataType>
-              Enhancement
+              <DataType.Btn>
+                Enhancement
+              </DataType.Btn>
             </DataType>
           </DataBar>
-          <MessageBar>88</MessageBar>
-        </Wrapper>
+          <MessageBar>
+            <MessageBar.Msg/>4
+          </MessageBar>
+        </WrapperItem>
       </Container>
     </React.Fragment>
   )

@@ -1,5 +1,9 @@
 import styled from "styled-components"
-import { Button } from "antd"
+import { NavLink } from 'react-router-dom'
+import { CaretUpOutlined as up } from '@ant-design/icons';
+import { ReactComponent as msg } from '../../assets/icons/msg.svg';
+
+
 
 export const Container = styled.div`
 display: flex;
@@ -7,18 +11,16 @@ flex-direction: column;
 justify-content: start;
 margin: 130px 0 0 50px;
 width: 1200px;
-border: 1px solid red;
 
 `
 
 
 
-export const Wrapper = styled.div`
+export const WrapperItem = styled.div`
 display: flex;
 background: var(--bgColor);
 border-radius: 15px;
-padding: 30px;
-border: 1px solid aqua;
+padding: 10px 30px 30px 30px;
 
 
 `
@@ -27,9 +29,48 @@ border: 1px solid aqua;
 export const LikeBar = styled.div`
 display: flex;
 flex: 1;
-border: 1px solid red;
 align-items: center;
 justify-content: center;
+
+`
+
+
+
+export const LikeBtn = styled.button`
+display: flex;
+flex-direction: column;
+padding: 10px 12px;
+background: var(--defaultBtnBgColor);
+border: none;
+border-radius: 10px;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+
+:hover{
+    background: var(--hoverBtnBgColor);
+}
+
+&:focus{
+    background: var(--activeBgColor);
+    color: white;
+}
+
+&:focus .icon{
+    color: white;
+}
+
+`
+
+
+LikeBtn.LikeIcon = styled(up)`
+width: 20px;
+height: 20px;
+color: var(--activeBgColor);
 
 
 `
@@ -39,10 +80,10 @@ export const DataBar = styled.div`
 display: flex;
 flex-direction: column;
 flex: 8;
-border: 1px solid red;
+margin: 35px 0 0 20px;
 
 `
-export const Title = styled.div`
+export const Link = styled(NavLink)`
 display: flex;
 font-weight: 700;
 font-size: 24px;
@@ -59,12 +100,22 @@ line-height: 23px;
 color: var(--textColor);
 
 `
-export const DataType = styled(Button)`
+export const DataType = styled.div`
+display: flex;
+
+`
+
+DataType.Btn = styled.button`
 display: flex;
 color: var(--activeBgColor);
+padding: 2px 16px;
+font-weight: 600;
+font-size: 16px;
+line-height: 28px;
 border: none;
-border-radius: 15px;
+border-radius: 10px;
 background: var(--defaultBtnBgColor);
+cursor: pointer;
 
 :hover{
     background: var(--hoverBtnBgColor);
@@ -72,7 +123,9 @@ background: var(--defaultBtnBgColor);
 
 &:focus{
     background:  #4661E6;
+    color: white;
 }
+
 
 `
 
@@ -82,7 +135,18 @@ display: flex;
 flex: 1;
 align-items: center;
 justify-content: center;
-border: 1px solid red;
+font-weight: 700;
+font-size: 18px;
+line-height: 24px;
+text-align: center;
+
+`
+
+MessageBar.Msg = styled(msg)`
+display: flex;
+width: 25px;
+height: 25px;
+margin-right: 10px;
 
 `
 
