@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Select } from 'antd'
 import { Link, Outlet } from 'react-router-dom'
 import { BtnWrapper, Container, TextWrapper, AddButton, Add } from './style'
 
+import { SuggestionsContext } from '../../context/suggestion/SuggContext'
+
 const Navbar = () => {
+
+  const [mock, setMock] = useContext(SuggestionsContext);
+
   const { Option } = Select
 
   function onChange(value) {
-    console.log(`selected ${value}`)
+    const newArr = [];
+    // console.log(`selected ${value}`)
+    switch(value){
+      case "mostUpvotes" :  newArr.push( mock.sort((a,b)=> a.like - b.like) )
+
+      // case "lastUpvotes" : 
+
+      // case "mostComments" : 
+
+      // case "lastComments" : 
+
+    }
+    // console.log(newArr, 'w');
+    setMock(newArr[0][0])
   }
 
   function onSearch(val) {
@@ -19,7 +37,7 @@ const Navbar = () => {
       <Container>
         <TextWrapper>
           <TextWrapper.Logo />
-          <TextWrapper.TextItem>6 Suggestions</TextWrapper.TextItem>
+          <TextWrapper.TextItem>{mock.length} Suggestions</TextWrapper.TextItem>
           <TextWrapper.SortBar>
             Sort by :
             <Select
@@ -35,7 +53,7 @@ const Navbar = () => {
               <Option value="mostUpvotes">Most Upvotes</Option>
               <Option value="lastUpvotes">Least Upvotes</Option>
               <Option value="mostComments">Most Comments</Option>
-              <Option value="lastcomments">Last Comments</Option>
+              <Option value="lastComments">Last Comments</Option>
             </Select>
           </TextWrapper.SortBar>
         </TextWrapper>

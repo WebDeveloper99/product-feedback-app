@@ -21,6 +21,7 @@ display: flex;
 background: var(--bgColor);
 border-radius: 15px;
 padding: 10px 30px 30px 30px;
+margin-bottom: 20px;
 
 
 `

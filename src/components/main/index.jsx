@@ -1,33 +1,50 @@
-import React from 'react'
-import { Container, WrapperItem, LikeBar, LikeBtn, DataBar, MessageBar,Link, Discreption, DataType } from './style'
+import React, { useContext } from 'react'
+import {
+  Container,
+  WrapperItem,
+  LikeBar,
+  LikeBtn,
+  DataBar,
+  MessageBar,
+  Link,
+  Discreption,
+  DataType,
+} from './style'
+
+import { SuggestionsContext } from '../../context/suggestion/SuggContext'
 
 const Main = () => {
+  const [mock, setMock] = useContext(SuggestionsContext)
+
   return (
     <React.Fragment>
       <Container>
-        <WrapperItem>
-          <LikeBar>
-            <LikeBtn>
-              <LikeBtn.LikeIcon className={'icon'} />102
-            </LikeBtn>
-          </LikeBar>
-          <DataBar>
-              <Link to={'/feedbackDetail'}>
-                Q&A within the challenge hubs
-              </Link>
-            <Discreption>
-              Challenge-specific Q&A would make for easy reference.
-            </Discreption>
-            <DataType>
-              <DataType.Btn>
-                Enhancement
-              </DataType.Btn>
-            </DataType>
-          </DataBar>
-          <MessageBar>
-            <MessageBar.Msg/>4
-          </MessageBar>
-        </WrapperItem>
+        {mock.map(({id, type, like, title, desc, msg}) => {
+          return (
+            <WrapperItem key={id} >
+              <LikeBar>
+                <LikeBtn>
+                  <LikeBtn.LikeIcon className={'icon'} />
+                  {like}
+                </LikeBtn>
+              </LikeBar>
+              <DataBar>
+                <Link to={'/feedbackDetail'}>
+                  {title}
+                </Link>
+                <Discreption>
+                  {desc}
+                </Discreption>
+                <DataType>
+                  <DataType.Btn>{type}</DataType.Btn>
+                </DataType>
+              </DataBar>
+              <MessageBar>
+                <MessageBar.Msg />{msg}
+              </MessageBar>
+            </WrapperItem>
+          )
+        })}
       </Container>
     </React.Fragment>
   )
