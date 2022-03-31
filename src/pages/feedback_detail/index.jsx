@@ -1,12 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
-  BtnWrapper,
   Container,
   NavContainer,
   TextWrapper,
+  BtnWrapper,
   AddButton,
-  CommentWrapper,
   WrapperItem,
   LikeBar,
   LikeBtn,
@@ -16,6 +15,8 @@ import {
   Link,
   Discreption,
   DataType,
+  CommentWrapper,
+  CommentItem,
 } from './style'
 
 const FeedbackDetail = () => {
@@ -56,10 +57,10 @@ const FeedbackDetail = () => {
           </MessageBar>
         </WrapperItem>
         <CommentWrapper>
-          <CommentWrapper.Theme></CommentWrapper.Theme>
+          <CommentWrapper.Theme>4 comments</CommentWrapper.Theme>
           <CommentItem>
-            <CommentItem.Title></CommentItem.Title>
-            <CommentItem.Desc></CommentItem.Desc>
+            <CommentItem.Title>add reply</CommentItem.Title>
+            <CommentItem.Desc>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </CommentItem.Desc>
           </CommentItem>
         </CommentWrapper>
     </Container>

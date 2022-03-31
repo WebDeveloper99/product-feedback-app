@@ -232,5 +232,27 @@ width: 100%;
 background: var(--bgColor);
 margin-top: 30px;
 padding: 10px 30px 30px 30px;
+color: #000;
+
+`
+
+CommentWrapper.Theme = styled.div`
+display: flex;
+
+`
+
+export const CommentItem = styled.div`
+display: flex;
+flex-direction: column;
+
+`
+
+CommentItem.Title = styled.div`
+display: flex;
+
+`
+
+CommentItem.Desc = styled.div`
+display: flex;
 
 `
