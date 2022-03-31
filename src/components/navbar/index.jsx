@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Select } from 'antd'
 import { Link, Outlet } from 'react-router-dom'
 import { BtnWrapper, Container, TextWrapper, AddButton, Add } from './style'
@@ -9,13 +9,16 @@ const Navbar = () => {
 
   const [mock, setMock] = useContext(SuggestionsContext);
 
+  const [data, setData] = useState(mock)
+
   const { Option } = Select
 
   function onChange(value) {
-    const newArr = [];
+
     // console.log(`selected ${value}`)
+    console.log(`selected ${value}`)
     switch(value){
-      case "mostUpvotes" :  newArr.push( mock.sort((a,b)=> a.like - b.like) )
+      // case "mostUpvotes" :  return( mock.sort((a,b)=> a[0].ge) )
 
       // case "lastUpvotes" : 
 
@@ -24,8 +27,6 @@ const Navbar = () => {
       // case "lastComments" : 
 
     }
-    // console.log(newArr, 'w');
-    setMock(newArr[0][0])
   }
 
   function onSearch(val) {

@@ -1,6 +1,6 @@
+import styled from "styled-components"
 import { Button } from "antd";
 import { PlusOutlined } from '@ant-design/icons';
-import styled from "styled-components"
 import { ReactComponent as lamp } from '../../assets/icons/lamp.svg';
 
 export const Container = styled.div`
