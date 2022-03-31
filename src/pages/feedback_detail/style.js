@@ -238,12 +238,17 @@ color: #000;
 
 CommentWrapper.Theme = styled.div`
 display: flex;
+font-weight: 700;
+font-size: 24px;
+line-height: 28px;
+color: var(--titleColor);
 
 `
 
 export const CommentItem = styled.div`
 display: flex;
 flex-direction: column;
+color: var(--textColor);
 
 `
 
