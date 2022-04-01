@@ -5,15 +5,15 @@ import 'antd/dist/antd.css';
 import './index.css';
 
 import Root from './root'
-import { SuggestionsContextProvider } from './context/suggestion/SuggContext';
+import { GlobalContextProvider } from './context/globalContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <SuggestionsContextProvider>
+    <GlobalContextProvider>
       <Router>
         <Root />
       </Router>
-    </SuggestionsContextProvider>
+    </GlobalContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

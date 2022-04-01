@@ -14,33 +14,37 @@ import {
 import { SuggestionsContext } from '../../context/suggestion/SuggContext'
 
 const Main = () => {
-  const [mock, setMock] = useContext(SuggestionsContext)
+  const [sugg_mock, setSugg_Mock] = useContext(SuggestionsContext)
+
+  const comment=(feedback_id)=>{
+    localStorage.setItem("feedback_id", feedback_id)
+  }
 
   return (
     <React.Fragment>
       <Container>
-        {mock.map(({id, type, like, title, desc, msg}) => {
+        {sugg_mock.map(({feedback_id, feedback_like, feedback_title, feedback_description, category_name, comment_count}) => {
           return (
-            <WrapperItem key={id} >
+            <WrapperItem key={feedback_id} >
               <LikeBar>
                 <LikeBtn>
                   <LikeBtn.LikeIcon className={'icon'} />
-                  {like}
+                  {feedback_like}
                 </LikeBtn>
               </LikeBar>
               <DataBar>
-                <Link to={'/feedbackDetail'}>
-                  {title}
+                <Link onClick={()=>comment(feedback_id)} to={'/feedbackDetail'}>
+                  {feedback_title}
                 </Link>
                 <Discreption>
-                  {desc}
+                  {feedback_description}
                 </Discreption>
                 <DataType>
-                  <DataType.Btn>{type}</DataType.Btn>
+                  <DataType.Btn>{category_name}</DataType.Btn>
                 </DataType>
               </DataBar>
               <MessageBar>
-                <MessageBar.Msg />{msg}
+                <MessageBar.Msg />{comment_count}
               </MessageBar>
             </WrapperItem>
           )

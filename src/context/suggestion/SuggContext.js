@@ -12,12 +12,12 @@ export const SuggestionsContext = createContext()
 export const SuggestionsContextProvider = ({ children }) => {
 
 
-    const [mock, setMock] = useState(suggData)
+    const [sugg_mock, setSugg_Mock] = useState(suggData)
 
 
 
     return (
-        <SuggestionsContext.Provider value={[mock, setMock]} >
+        <SuggestionsContext.Provider value={[sugg_mock, setSugg_Mock]} >
             {children}
         </SuggestionsContext.Provider>
     )

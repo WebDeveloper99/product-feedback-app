@@ -1,9 +1,72 @@
 import React from 'react'
-import { Container } from './style'
+import { useNavigate } from 'react-router-dom'
+import { Select } from 'antd'
+import {
+  Container,
+  NavContainer,
+  TextWrapper,
+  Wrapper,
+  Title,
+  FeedbackTitle,
+  Category,
+  FeedbackDetail,
+  BtnGroup,
+} from './style'
 
 const NewFeedback = () => {
+  const navigate = useNavigate()
+  const { Option } = Select
+
+  function handleChange(value) {
+    console.log(`selected ${value}`)
+  }
+
   return (
-    <Container>NewFeedback</Container>
+    <Container>
+      <NavContainer>
+        <TextWrapper>
+          <TextWrapper.TextItem onClick={() => navigate('/')}>
+            Go Back
+          </TextWrapper.TextItem>
+        </TextWrapper>
+      </NavContainer>
+      <Wrapper>
+        <Title>Create New Feedback</Title>
+        <FeedbackTitle>
+          <FeedbackTitle.Title>Feedback Title</FeedbackTitle.Title>
+          <FeedbackTitle.Desc>
+            Add a short, descriptive headline
+          </FeedbackTitle.Desc>
+          <FeedbackTitle.Input></FeedbackTitle.Input>
+        </FeedbackTitle>
+        <Category>
+          <Category.Title>Category</Category.Title>
+          <Category.Desc>Choose a category for your feedback</Category.Desc>
+            <Select
+              style={{marginBottom: '20px', background: '#F7F8FD'}}
+              size='large'
+              defaultValue="lucy"
+              onChange={handleChange}
+            >
+              <Option value="jack">Jack</Option>
+              <Option value="lucy">Lucy</Option>
+              <Option value="disabled">
+                Disabled
+              </Option>
+              <Option value="Yiminghe">yiminghe</Option>
+            </Select>
+        </Category>
+        <FeedbackDetail>
+          <FeedbackDetail.Title>Feedback Detail</FeedbackDetail.Title>
+          <FeedbackDetail.Desc>
+            Include any specific comments on what should be improved, added,
+            etc.
+          </FeedbackDetail.Desc>
+          <FeedbackDetail.Input></FeedbackDetail.Input>
+        </FeedbackDetail>
+        <BtnGroup></BtnGroup>
+      </Wrapper>
+    </Container>
   )
 }
 

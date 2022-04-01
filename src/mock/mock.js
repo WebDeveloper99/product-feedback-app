@@ -1,11 +1,140 @@
 
-
+import avatar from '../assets/imgs/avatar.jpg'
 
 export const suggData = [
-    { id: 1, design: 'ui', type: 'bug', road: 'planned', like: 57, title: 'Add tags for solutions', desc: 'lorem lorem lorem lorem lorem lorem lorem lorem', msg: 4 },
-    { id: 2, design: 'ux', type: 'feature', road: 'inprogress', like: 120, title: 'Change tags for solutions', desc: 'lorem lorem lorem lorem lorem lorem lorem lorem', msg: 2 },
-    { id: 3, design: 'ui', type: 'Enhancement', road: 'live', like: 21, title: 'Create tags for solutions', desc: 'lorem lorem lorem lorem lorem lorem lorem lorem', msg: 1 },
-    { id: 4, design: 'ux', type: 'feature', road: 'planned', like: 577, title: 'Push tags for solutions', desc: 'lorem lorem lorem lorem lorem lorem lorem lorem', msg: 0 },
-    { id: 5, design: 'ui', type: 'Enhancement', road: 'inprogress', like: 7, title: 'All tags for solutions', desc: 'lorem lorem lorem lorem lorem lorem lorem lorem', msg: 30 },
-    { id: 6, design: 'ux', type: 'feature', road: 'live', like: 41, title: 'Add tags for solutions', desc: 'lorem lorem lorem lorem lorem lorem lorem lorem', msg: 11 },
+    {
+        feedback_id: 1,
+        feedback_title: 'Add tags for solutions',
+        feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+        feedback_status: 1,
+        feedback_like: 53,
+        catecory_id: 9,
+        catecory_name: 'Feature',
+        comment_count: 16,
+
+
+    },
+    {
+        feedback_id: 2,
+        feedback_title: 'Add tags for solutions',
+        feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+        feedback_status: 2,
+        feedback_like: 107,
+        catecory_id: 9,
+        catecory_name: 'Enhancement',
+        comment_count: 3,
+    },
+    {
+        feedback_id: 3,
+        feedback_title: 'Add tags for solutions',
+        feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+        feedback_status: 3,
+        feedback_like: 97,
+        catecory_id: 9,
+        catecory_name: 'bug',
+        comment_count: 9,
+    },
+    {
+        feedback_id: 4,
+        feedback_title: 'Add tags for solutions',
+        feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+        feedback_status: 1,
+        feedback_like: 78,
+        catecory_id: 9,
+        catecory_name: 'bug',
+        comment_count: 1,
+    },
+    {
+        feedback_id: 5,
+        feedback_title: 'Add tags for solutions',
+        feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+        feedback_status: 2,
+        feedback_like: 57,
+        catecory_id: 9,
+        catecory_name: 'Enhancement',
+        comment_count: 7,
+    },
+    {
+        feedback_id: 6,
+        feedback_title: 'Add tags for solutions',
+        feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+        feedback_status: 3,
+        feedback_like: 7,
+        catecory_id: 9,
+        catecory_name: 'Feature',
+        comment_count: 4,
+    },
+]
+
+
+
+
+
+export const commentData = [
+    {
+        comment_id: 1,
+        comment_text: "sest Project",
+        createdAt: "",
+        User: {
+            user_id: 1,
+            name: "Eldor",
+            username: "@Eldor",
+            user_profile_img: avatar,
+            role: "developer",
+        },
+        Feedback: {
+            feedback_id: 1,
+            feedback_title: 'Add tags for solutions',
+            feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+            feedback_status: 3,
+            feedback_like: 7,
+            createdAt: "",
+            updateAt: "",
+            catecory_id: 9,
+        }
+    },
+    {
+        comment_id: 2,
+        comment_text: "sest Project",
+        createdAt: "",
+        User: {
+            user_id: 2,
+            name: "Farrux",
+            username: "@Farrux",
+            user_profile_img: avatar,
+            role: "developer",
+        },
+        Feedback: {
+            feedback_id: 2,
+            feedback_title: 'Add tags for solutions',
+            feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+            feedback_status: 3,
+            feedback_like: 7,
+            createdAt: "",
+            updateAt: "",
+            catecory_id: 12,
+        }
+    },
+    {
+        comment_id: 3,
+        comment_text: "sest Project",
+        createdAt: "",
+        User: {
+            user_id: 3,
+            name: "Fazliddn",
+            username: "@Fazliddn",
+            user_profile_img: avatar,
+            role: "developer",
+        },
+        Feedback: {
+            feedback_id: 3,
+            feedback_title: 'Add tags for solutions',
+            feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+            feedback_status: 3,
+            feedback_like: 7,
+            createdAt: "",
+            updateAt: "",
+            catecory_id: 21,
+        }
+    },
 ]

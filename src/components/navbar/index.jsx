@@ -7,9 +7,9 @@ import { SuggestionsContext } from '../../context/suggestion/SuggContext'
 
 const Navbar = () => {
 
-  const [mock, setMock] = useContext(SuggestionsContext);
+  const [sugg_mock, setSugg_Mock] = useContext(SuggestionsContext);
 
-  const [data, setData] = useState(mock)
+  const [data, setData] = useState(sugg_mock)
 
   const { Option } = Select
 
@@ -38,7 +38,7 @@ const Navbar = () => {
       <Container>
         <TextWrapper>
           <TextWrapper.Logo />
-          <TextWrapper.TextItem>{mock.length} Suggestions</TextWrapper.TextItem>
+          <TextWrapper.TextItem>{sugg_mock.length} Suggestions</TextWrapper.TextItem>
           <TextWrapper.SortBar>
             Sort by :
             <Select

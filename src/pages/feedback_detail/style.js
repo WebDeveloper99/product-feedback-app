@@ -63,9 +63,13 @@ flex: 1;
 
 export const AddButton = styled(Button)`
 color: white;
-width: 220px;
-height: 60px;
-background-color: var(--btnBgColor);
+/* width: 220px;
+height: 60px; */
+width: ${({width})=> width ? width : `220px`};
+height: ${({height})=> height ? height : `60px`};
+align-items: center;
+justify-content: center;
+background: ${({color})=> color ? color : `var(--btnBgColor)`};
 border-radius: 10px;
 font-weight: 700;
 font-size: 18px;
@@ -79,7 +83,7 @@ font-size: 18px;
 
 export const WrapperItem = styled.div`
 display: flex;
-width: 100%;
+width: 1200px;
 background: var(--bgColor);
 border-radius: 15px;
 margin-top: 30px;
@@ -150,6 +154,8 @@ margin: 35px 0 0 20px;
 `
 export const Link = styled(NavLink)`
 display: flex;
+align-items: center;
+justify-content: center;
 font-weight: 700;
 font-size: 24px;
 line-height: 26px;
@@ -231,7 +237,8 @@ flex-direction: column;
 width: 100%;
 background: var(--bgColor);
 margin-top: 30px;
-padding: 10px 30px 30px 30px;
+padding: 30px 0 0 50px ;
+border-bottom: 2px solid lightgray;
 color: #000;
 
 `
@@ -241,23 +248,128 @@ display: flex;
 font-weight: 700;
 font-size: 24px;
 line-height: 28px;
+margin-bottom: 20px;
 color: var(--titleColor);
 
 `
 
 export const CommentItem = styled.div`
 display: flex;
-flex-direction: column;
 color: var(--textColor);
 
 `
 
-CommentItem.Title = styled.div`
+export const CommentAvatarWrapper = styled.div`
 display: flex;
+flex: 1;
+align-items: start;
+justify-content: center;
 
 `
 
-CommentItem.Desc = styled.div`
+export const CommentAvatar = styled.div`
 display: flex;
+width: 50px;
+height: 50px;
+margin-top: 15px;
+border: 1px solid red;
+border-radius: 50%;
 
 `
+
+export const CommentMain = styled.div`
+display: flex;
+flex-direction: column;
+padding: 15px;
+flex: 9;
+
+`
+
+CommentMain.Title = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+
+`
+
+CommentMain.Desc = styled.div`
+display: flex;
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+padding: 20px;
+
+
+`
+
+export const CommentReply = styled.div`
+display: flex;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+color: var(--activeBgColor);
+
+`
+
+export const CommentUser = styled.div`
+display: flex;
+flex-direction: column;
+
+`
+
+CommentUser.Name = styled.div`
+display: flex;
+font-weight: 700;
+font-size: 22px;
+line-height: 26px;
+
+`
+
+CommentUser.Email = styled.div`
+display: flex;
+font-weight: 400;
+font-size: 18px;
+line-height: 20px;
+margin: 7px 0;
+
+`
+
+
+
+// ---------------------------------begin-WrapperReplay---------
+
+export const PostReplyWrapper = styled.div`
+display: flex;
+width: 85%;
+margin-left: 140px;
+margin-bottom: 40px;
+transition: 1s all ease-in-out;
+
+`
+
+
+PostReplyWrapper.Text = styled.div`
+display: flex;
+flex: 3;
+padding: 20px 30px 60px 30px;
+margin-right: 20px;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+color: var(--textColor);
+border: 2px solid  #4661E6;
+border-radius: 15px;
+cursor: pointer;
+
+`
+
+
+PostReplyWrapper.Btn = styled.div`
+display: flex;
+flex: 1;
+align-items: start;
+justify-content: center;
+
+`
+
