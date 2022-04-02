@@ -58,18 +58,21 @@ display: flex;
 flex-direction: column;
 width: 100%;
 padding: 50px;
+margin-top: 20px;
 color: var(--titleColor);
 position: relative;
-border: 1px solid red;
+border: 1px solid aqua;
 
 &::after{
     content: '';
     display: flex;
     position: absolute;
-    width: 50px;
-    height: 50px;
-    width: 50%;
-    border: 1px solid red;
+    top: -40px;
+    left: 50px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%)
 }
 
 

@@ -45,15 +45,14 @@ const NewFeedback = () => {
             <Select
               style={{marginBottom: '20px', background: '#F7F8FD'}}
               size='large'
-              defaultValue="lucy"
+              defaultValue="Feature"
               onChange={handleChange}
             >
-              <Option value="jack">Jack</Option>
-              <Option value="lucy">Lucy</Option>
-              <Option value="disabled">
-                Disabled
-              </Option>
-              <Option value="Yiminghe">yiminghe</Option>
+              <Option value="feature">Feature</Option>
+              <Option value="ui">UI</Option>
+              <Option value="ux">UX</Option>
+              <Option value="enhancement">Enhancement</Option>
+              <Option value="bug">Bug</Option>
             </Select>
         </Category>
         <FeedbackDetail>
