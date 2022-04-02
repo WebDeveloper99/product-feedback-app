@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { Select } from 'antd'
-import { Link, Outlet } from 'react-router-dom'
-import { BtnWrapper, Container, TextWrapper, AddButton, Add } from './style'
+import { Outlet, Navigate, useNavigate } from 'react-router-dom'
+import { BtnWrapper, Container, TextWrapper, AddButton } from './style'
 
 import { SuggestionsContext } from '../../context/suggestion/SuggContext'
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
 
   const [sugg_mock, setSugg_Mock] = useContext(SuggestionsContext);
 
@@ -59,7 +61,7 @@ const Navbar = () => {
           </TextWrapper.SortBar>
         </TextWrapper>
         <BtnWrapper>
-          <AddButton><Link to={'/newFeedback'}><Add/>Add Feedback</Link></AddButton>
+          <AddButton onClick={()=> navigate('/newFeedback')} >+ Add Feedback</AddButton>
         </BtnWrapper>
       </Container>
     </React.Fragment>

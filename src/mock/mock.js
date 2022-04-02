@@ -58,7 +58,7 @@ export const suggData = [
         feedback_id: 6,
         feedback_title: 'Add tags for solutions',
         feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
-        feedback_status: 3,
+        feedback_status: 2,
         feedback_like: 7,
         catecory_id: 9,
         catecory_name: 'Feature',

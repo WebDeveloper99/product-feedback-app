@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CommentsContext } from '../../context/comment/commentsContext'
 import { SuggestionsContext } from '../../context/suggestion/SuggContext'
+import { CaretLeftOutlined } from '@ant-design/icons'
 import {
   Container,
   NavContainer,
@@ -14,7 +15,6 @@ import {
   DataBar,
   Title,
   MessageBar,
-  Link,
   Discreption,
   DataType,
   CommentWrapper,
@@ -80,13 +80,11 @@ const FeedbackDetail = () => {
       <NavContainer>
         <TextWrapper>
           <TextWrapper.TextItem onClick={() => navigate('/')}>
-            Go Back
+           <CaretLeftOutlined/> Go Back
           </TextWrapper.TextItem>
         </TextWrapper>
         <BtnWrapper>
-          <AddButton color="#7C91F9">
-            <Link to={'/editFeedback'}>Edit Feedback</Link>
-          </AddButton>
+          <AddButton onClick={() => navigate('/editFeedback')} color="#7C91F9">Edit Feedback</AddButton>
         </BtnWrapper>
       </NavContainer>
       {sugg_data.map((value) => {

@@ -1,16 +1,21 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Select } from 'antd'
+import { CaretLeftOutlined } from '@ant-design/icons'
 import {
   Container,
   NavContainer,
   TextWrapper,
   Wrapper,
+  Add,
   Title,
   FeedbackTitle,
   Category,
   FeedbackDetail,
   BtnGroup,
+  Link,
+  AddBtn,
+  CancelBtn
 } from './style'
 
 const NewFeedback = () => {
@@ -26,11 +31,12 @@ const NewFeedback = () => {
       <NavContainer>
         <TextWrapper>
           <TextWrapper.TextItem onClick={() => navigate('/')}>
-            Go Back
+           <CaretLeftOutlined/> Go Back
           </TextWrapper.TextItem>
         </TextWrapper>
       </NavContainer>
       <Wrapper>
+        <Add>+</Add>
         <Title>Create New Feedback</Title>
         <FeedbackTitle>
           <FeedbackTitle.Title>Feedback Title</FeedbackTitle.Title>
@@ -42,18 +48,18 @@ const NewFeedback = () => {
         <Category>
           <Category.Title>Category</Category.Title>
           <Category.Desc>Choose a category for your feedback</Category.Desc>
-            <Select
-              style={{marginBottom: '20px', background: '#F7F8FD'}}
-              size='large'
-              defaultValue="Feature"
-              onChange={handleChange}
-            >
-              <Option value="feature">Feature</Option>
-              <Option value="ui">UI</Option>
-              <Option value="ux">UX</Option>
-              <Option value="enhancement">Enhancement</Option>
-              <Option value="bug">Bug</Option>
-            </Select>
+          <Select
+            style={{ marginBottom: '20px', background: '#F7F8FD' }}
+            size="large"
+            defaultValue="Feature"
+            onChange={handleChange}
+          >
+            <Option value="feature">Feature</Option>
+            <Option value="ui">UI</Option>
+            <Option value="ux">UX</Option>
+            <Option value="enhancement">Enhancement</Option>
+            <Option value="bug">Bug</Option>
+          </Select>
         </Category>
         <FeedbackDetail>
           <FeedbackDetail.Title>Feedback Detail</FeedbackDetail.Title>
@@ -63,7 +69,10 @@ const NewFeedback = () => {
           </FeedbackDetail.Desc>
           <FeedbackDetail.Input></FeedbackDetail.Input>
         </FeedbackDetail>
-        <BtnGroup></BtnGroup>
+        <BtnGroup>
+          <CancelBtn onClick={() => navigate('/')} width={'100px'} bgColor={'#3A4374'}>Cancel</CancelBtn>
+          <AddBtn onClick={() => navigate('/')} >Add Feedback</AddBtn>
+        </BtnGroup>
       </Wrapper>
     </Container>
   )

@@ -1,7 +1,6 @@
 
 import styled from "styled-components"
 import { Button } from "antd"
-import { NavLink } from 'react-router-dom'
 import { CaretUpOutlined as up } from '@ant-design/icons';
 import { ReactComponent as msg } from '../../assets/icons/msg.svg';
 
@@ -47,7 +46,7 @@ flex: 1;
 
 TextWrapper.TextItem = styled.div`
 font-weight: 700;
-font-size: 24px;
+font-size: 18px;
 margin: 0 35px 0 20px;
 cursor: pointer;
 
@@ -63,8 +62,6 @@ flex: 1;
 
 export const AddButton = styled(Button)`
 color: white;
-/* width: 220px;
-height: 60px; */
 width: ${({width})=> width ? width : `220px`};
 height: ${({height})=> height ? height : `60px`};
 align-items: center;
@@ -115,7 +112,6 @@ border-radius: 10px;
 font-weight: 700;
 font-size: 18px;
 line-height: 28px;
-display: flex;
 align-items: center;
 justify-content: center;
 cursor: pointer;
@@ -152,16 +148,8 @@ flex: 8;
 margin: 35px 0 0 20px;
 
 `
-export const Link = styled(NavLink)`
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: 700;
-font-size: 24px;
-line-height: 26px;
-color: var(--titleColor);
 
-`
+
 export const Title = styled.div`
 display: flex;
 font-weight: 700;

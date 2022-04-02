@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { Button } from "antd";
-import { PlusOutlined } from '@ant-design/icons';
 import { ReactComponent as lamp } from '../../assets/icons/lamp.svg';
 
 export const Container = styled.div`
@@ -42,14 +41,17 @@ margin: 0 35px 0 20px;
 TextWrapper.SortBar = styled.div`
 font-weight: 400;
 font-size: 20px;
+cursor: pointer;
 .ant-select{
     font-size: 18px;
     font-weight: 500;
+    color: white;
     .ant-select-selector{
         background-color: transparent;
         border: none;
     }
     .ant-select-arrow{
+        cursor: pointer;
         color: white;
     }
 }
@@ -66,6 +68,9 @@ flex: 1;
 `
 
 export const AddButton = styled(Button)`
+display: flex;
+align-items: center;
+justify-content: center;
 color: white;
 width: 220px;
 height: 60px;
@@ -76,9 +81,4 @@ font-size: 18px;
 
 `
 
-export const Add = styled(PlusOutlined)`
-width: 120x;
-height: 12px;
-
-`
 

@@ -1,7 +1,7 @@
 
 
 import styled from "styled-components"
-import { Input } from 'antd'
+import { Button, Input } from 'antd'
 
 export const Container = styled.div`
 display: flex;
@@ -12,6 +12,7 @@ margin: 0 auto;
 background: var(--bgColor);
 
 `
+
 
 // --------------------------begin-navbar------------------>>>
 
@@ -41,7 +42,7 @@ flex: 1;
 
 TextWrapper.TextItem = styled.div`
 font-weight: 700;
-font-size: 24px;
+font-size: 18px;
 margin: 0 35px 0 20px;
 cursor: pointer;
 
@@ -61,7 +62,6 @@ padding: 50px;
 margin-top: 20px;
 color: var(--titleColor);
 position: relative;
-border: 1px solid aqua;
 
 &::after{
     content: '';
@@ -75,6 +75,16 @@ border: 1px solid aqua;
     background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%)
 }
 
+`
+
+export const Add = styled.div`
+position: absolute;
+z-index: 3;
+top: -35px;
+left: 75px;
+color: white;
+font-size: 40px;
+font-weight: bold;
 
 `
 
@@ -82,8 +92,8 @@ export const Title = styled.div`
 display: flex;
 flex-direction: column;
 font-weight: 700;
-font-size: 28px;
-line-height: 60px;
+font-size: 24px;
+line-height: 50px;
 
 
 `
@@ -98,8 +108,8 @@ flex-direction: column;
 FeedbackTitle.Title = styled.div`
 display: flex;
 font-weight: 700;
-font-size: 20px;
-line-height: 28px;
+font-size: 18px;
+line-height: 24px;
 color: var(--titleColor);
 
 `
@@ -107,7 +117,7 @@ color: var(--titleColor);
 FeedbackTitle.Desc = styled.div`
 display: flex;
 font-weight: 400;
-font-size: 20px;
+font-size: 18px;
 line-height: 24px;
 margin-bottom: 20px;
 color: var(--textColor);
@@ -115,7 +125,7 @@ color: var(--textColor);
 `
 FeedbackTitle.Input = styled(Input)`
 display: flex;
-height: 60px;
+height: 50px;
 font-size: 18px;
 border-radius: 5px;
 background: var(--bodyColor);
@@ -126,12 +136,13 @@ background: var(--bodyColor);
 export const Category = styled.div`
 display: flex;
 flex-direction: column;
+margin-top: 15px;
 
 .ant-select{
     .ant-select-selector{
     background-color: var(--bodyColor);
     border-radius: 5px;
-    height: 60px!important;
+    height: 50px!important;
     align-items: center;
     font-size: 18px;
    }
@@ -177,10 +188,39 @@ background: var(--bodyColor);
 // ----------------------------------------------------------------
 export const BtnGroup = styled.div`
 display: flex;
-flex-direction: column;
+align-items: center;
+justify-content: end;
+margin-top: 30px;
+
+`
+
+
+
+
+export const AddBtn = styled(Button)`
+display: flex;
+color: white;
+width: ${({width})=> width ? width : `180px`};
+height: ${({height})=> height ? height : `50px`};
+background-color: var(--btnBgColor);
+border-radius: 10px;
+font-weight: 700;
+font-size: 18px;
+align-items: center!important;
+justify-content : center!important;
 
 
 `
+
+export const CancelBtn = styled(AddBtn)`
+width: ${({width})=> width ? width : `180px`};
+height: ${({height})=> height ? height : `50px`};;
+background: ${({bgColor})=> bgColor ? bgColor : ``};
+margin-right: 20px;
+
+`
+
+
 
 
 // ----------------------end-wrapper--------------<<<
