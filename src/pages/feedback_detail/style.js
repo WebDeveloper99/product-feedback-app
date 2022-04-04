@@ -26,8 +26,8 @@ height: 100px;
 margin: 0 auto;
 padding: 0 25px;
 border-radius: 15px;
-background: var(--navbarBgColor);
-color: white;
+/* background: var(--navbarBgColor); */
+color: var(--titleColor);
 align-items: center;
 
 `
@@ -259,6 +259,9 @@ export const CommentAvatar = styled.div`
 display: flex;
 width: 50px;
 height: 50px;
+overflow: hidden;
+background-repeat: no-repeat;
+background-size: cover;
 margin-top: 15px;
 border: 1px solid red;
 border-radius: 50%;

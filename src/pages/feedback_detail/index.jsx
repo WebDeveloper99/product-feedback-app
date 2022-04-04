@@ -36,19 +36,19 @@ const FeedbackDetail = () => {
   const [sugg_mock, setSugg_Mock] = useContext(SuggestionsContext)
   const [sugg_data, setSugg_Data] = useState(sugg_mock)
 
-  const suggSort = (localStor_feedbackId) => {
+  const suggSort = () => {
 
+    
     let newSuggData = sugg_data.filter((item) => {
       return item.feedback_id == localStor_feedbackId &&  item;
     })
     setSugg_Data(newSuggData)
-    console.log(newSuggData, 'sugg new data')
   }
-
+  
   
   useEffect(()=>{
-    suggSort(localStor_feedbackId)
-  },[localStor_feedbackId])
+    suggSort()
+  },[])
 
   // --------------------suggData-----------------------------<<<
 
@@ -57,20 +57,21 @@ const FeedbackDetail = () => {
   const [comment_mock, setComment_Mock] = useContext(CommentsContext)
   const [comment_data, setComment_Data] = useState(comment_mock)
 
-  const commentSort = (localStor_feedbackId) => {
 
-    let newCommentData = comment_data.filter((item) => {
-      return item.Feedback.feedback_id == localStor_feedbackId & item
+  
+  const commentSort = () => {
+
+    let newCommentData = comment_data.filter((value) => {
+      return value.Feedback.feedback_id == localStor_feedbackId && value;
     })
     setComment_Data(newCommentData)
-    console.log(newCommentData ,'bu men');
   }
   
   
   
   useEffect(()=>{
-      commentSort(localStor_feedbackId)
-    },[localStor_feedbackId])
+      commentSort()
+    },[])
 
   // ---------------------commentData---------------------------<<<
 
@@ -79,7 +80,7 @@ const FeedbackDetail = () => {
     <Container>
       <NavContainer>
         <TextWrapper>
-          <TextWrapper.TextItem onClick={() => navigate('/')}>
+          <TextWrapper.TextItem onClick={() => navigate(-1)}>
            <CaretLeftOutlined/> Go Back
           </TextWrapper.TextItem>
         </TextWrapper>
@@ -89,7 +90,7 @@ const FeedbackDetail = () => {
       </NavContainer>
       {sugg_data.map((value) => {
         return (
-          <div key={value.feedback_id}>
+          <React.Fragment key={value.feedback_id}>
             <WrapperItem>
               <LikeBar>
                 <LikeBtn>
@@ -108,18 +109,18 @@ const FeedbackDetail = () => {
                 <MessageBar.Msg />{value.comment_count}
               </MessageBar>
             </WrapperItem>
-          </div>
+          </React.Fragment>
         )
       })}
       <CommentWrapper>
         <CommentWrapper.Theme>{sugg_data[0].comment_count} Comments</CommentWrapper.Theme>
         {comment_data.map((item) => {
           return (
-            <div key={item.comment_id}>
+            <React.Fragment key={item.comment_id}>
               <CommentItem>
                 <CommentAvatarWrapper>
                   <CommentAvatar>
-                    <img src={`${item.User.user_profile_img}`} alt="" />
+                    <img src={`${item.User.user_profile_img}`} alt="comment avatar" />
                   </CommentAvatar>
                 </CommentAvatarWrapper>
                 <CommentMain>
@@ -148,7 +149,7 @@ const FeedbackDetail = () => {
                   <AddButton width={'150px'}>Post Reply</AddButton>
                 </PostReplyWrapper.Btn>
               </PostReplyWrapper>
-            </div>
+            </React.Fragment>
           )
         })}
       </CommentWrapper>

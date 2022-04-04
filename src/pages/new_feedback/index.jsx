@@ -23,14 +23,14 @@ const NewFeedback = () => {
   const { Option } = Select
 
   function handleChange(value) {
-    console.log(`selected ${value}`)
+    // console.log(`selected ${value}`)
   }
 
   return (
     <Container>
       <NavContainer>
         <TextWrapper>
-          <TextWrapper.TextItem onClick={() => navigate('/')}>
+          <TextWrapper.TextItem onClick={() => navigate(-1)}>
            <CaretLeftOutlined/> Go Back
           </TextWrapper.TextItem>
         </TextWrapper>
@@ -70,7 +70,7 @@ const NewFeedback = () => {
           <FeedbackDetail.Input></FeedbackDetail.Input>
         </FeedbackDetail>
         <BtnGroup>
-          <CancelBtn onClick={() => navigate('/')} width={'100px'} bgColor={'#3A4374'}>Cancel</CancelBtn>
+          <CancelBtn onClick={() => navigate('/')} width={'100px'} bgcolor={'#3A4374'}>Cancel</CancelBtn>
           <AddBtn onClick={() => navigate('/')} >Add Feedback</AddBtn>
         </BtnGroup>
       </Wrapper>

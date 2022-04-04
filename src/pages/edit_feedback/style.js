@@ -220,7 +220,7 @@ justify-content : center!important;
 export const CancelBtn = styled(AddBtn)`
 width: ${({width})=> width ? width : `180px`};
 height: ${({height})=> height ? height : `50px`};
-background: ${({bgColor})=> bgColor ? bgColor : ``};
+background: ${({bgcolor})=> bgcolor ? bgcolor : ``};
 margin-right: 20px;
 
 `

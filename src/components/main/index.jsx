@@ -16,14 +16,14 @@ import { SuggestionsContext } from '../../context/suggestion/SuggContext'
 const Main = () => {
   const [sugg_mock, setSugg_Mock] = useContext(SuggestionsContext)
 
-  const comment=(feedback_id)=>{
+  const setFeedbackIdtoLocalStorage=(feedback_id)=>{
     localStorage.setItem("feedback_id", feedback_id)
   }
 
   return (
     <React.Fragment>
       <Container>
-        {sugg_mock.map(({feedback_id, feedback_like, feedback_title, feedback_description, category_name, comment_count}) => {
+        {sugg_mock.map(({feedback_id, feedback_like, feedback_title, feedback_description, catecory_name, comment_count}) => {
           return (
             <WrapperItem key={feedback_id} >
               <LikeBar>
@@ -33,14 +33,14 @@ const Main = () => {
                 </LikeBtn>
               </LikeBar>
               <DataBar>
-                <Link onClick={()=>comment(feedback_id)} to={'/feedbackDetail'}>
+                <Link onClick={()=>setFeedbackIdtoLocalStorage(feedback_id)} to={'/feedbackDetail'}>
                   {feedback_title}
                 </Link>
                 <Discreption>
                   {feedback_description}
                 </Discreption>
                 <DataType>
-                  <DataType.Btn>{category_name}</DataType.Btn>
+                  <DataType.Btn>{catecory_name}</DataType.Btn>
                 </DataType>
               </DataBar>
               <MessageBar>
