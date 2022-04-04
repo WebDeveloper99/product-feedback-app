@@ -1,9 +1,40 @@
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Container, SectionHead, SectionBody, SectionFooter, AntButton, Link } from './style'
+import { SuggestionsContext } from '../../context/suggestion/SuggContext'
 
 const Section = () => {
+
+  const [sugg_mock, setSugg_Mock] = useContext(SuggestionsContext)
+  var planned = [];
+  var progress = [];
+  var live = [];
+
+  const counterSort =(sugg_mock)=>{
+
+    planned = sugg_mock.filter((value)=>{
+      return(
+        value.feedback_status === 1 && value
+      )
+    })
+
+    progress = sugg_mock.filter((value)=>{
+      return(
+        value.feedback_status === 2 && value
+      )
+    })
+
+    live = sugg_mock.filter((value)=>{
+      return(
+        value.feedback_status === 3 && value
+      )
+    })
+  }
+
+  counterSort(sugg_mock)
+
+
   return (
     <React.Fragment>
       <Container>
@@ -26,9 +57,9 @@ const Section = () => {
           Roadmap <Link to={'/roadmap'} >View</Link>
         </SectionFooter.Title>
         <SectionFooter.UL>
-          <SectionFooter.LI>Planned <b>3</b> </SectionFooter.LI>
-          <SectionFooter.LI>In-Progress <b>2</b> </SectionFooter.LI>
-          <SectionFooter.LI>Live <b>1</b> </SectionFooter.LI>
+          <SectionFooter.LI>Planned <b>{planned.length}</b> </SectionFooter.LI>
+          <SectionFooter.LI>In-Progress <b>{progress.length}</b> </SectionFooter.LI>
+          <SectionFooter.LI>Live <b>{live.length}</b> </SectionFooter.LI>
         </SectionFooter.UL>
       </SectionFooter>
     </Container>
