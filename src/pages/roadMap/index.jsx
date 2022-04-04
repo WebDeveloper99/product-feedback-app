@@ -30,14 +30,39 @@ const RoadMap = () => {
   const navigate = useNavigate()
   const [sugg_mock, setSugg_Mock] = useContext(SuggestionsContext)
 
-  
+  var planned = [];
+  var progress = [];
+  var live = [];
+
+  const counterSort =(sugg_mock)=>{
+    
+    planned = sugg_mock.filter((value)=>{
+      return(
+        value.feedback_status === 1 && value
+      )
+    })
+
+    progress = sugg_mock.filter((value)=>{
+      return(
+        value.feedback_status === 2 && value
+      )
+    })
+
+    live = sugg_mock.filter((value)=>{
+      return(
+        value.feedback_status === 3 && value
+      )
+    })
+  }
+
+  counterSort(sugg_mock)
 
 
   return (
     <Container>
       <NavContainer>
         <TextWrapper>
-          <TextWrapper.TextItem onClick={() => navigate('/')}>
+          <TextWrapper.TextItem onClick={() => navigate(-1)}>
             <CaretLeftOutlined /> Go Back
           </TextWrapper.TextItem>
           <TextWrapper.TextItem fontSize={'22px'}>Roadmap</TextWrapper.TextItem>
@@ -57,7 +82,7 @@ const RoadMap = () => {
           {sugg_mock.map((value) => {
             return (
               value.feedback_status === 1 && (
-                <LeftItem>
+                <LeftItem key={value.feedback_id} >
                   <LeftItem.Status>Planned</LeftItem.Status>
                   <LeftItem.Title>{value.feedback_title}</LeftItem.Title>
                   <LeftItem.Desc>{value.feedback_description}</LeftItem.Desc>
@@ -86,7 +111,7 @@ const RoadMap = () => {
           {sugg_mock.map((value) => {
             return (
               value.feedback_status === 2 && (
-                <CenterItem>
+                <CenterItem key={value.feedback_id} >
                   <CenterItem.Status>In Progress</CenterItem.Status>
                   <CenterItem.Title>{value.feedback_title}</CenterItem.Title>
                   <CenterItem.Desc>{value.feedback_description}</CenterItem.Desc>
@@ -113,7 +138,7 @@ const RoadMap = () => {
           {sugg_mock.map((value) => {
             return (
               value.feedback_status == 3 && (
-                <RightItem>
+                <RightItem key={value.feedback_id} >
                   <RightItem.Status>Live</RightItem.Status>
                   <RightItem.Title>{value.feedback_title}</RightItem.Title>
                   <RightItem.Desc>{value.feedback_description}</RightItem.Desc>
