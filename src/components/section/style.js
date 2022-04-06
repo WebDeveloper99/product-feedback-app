@@ -41,9 +41,8 @@ color: white;
 `
 
 export const SectionBody = styled(SectionHead)`
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-gap: 20px;
+display: flex;
+flex-wrap: wrap;
 padding: 20px;
 background: var(--bgColor);
 margin: 30px 0;
@@ -51,10 +50,15 @@ margin: 30px 0;
 `
 
 export const AntButton = styled(Button)`
+display: flex;
+align-items: center;
+justify-content: center;
 color: var(--activeBgColor);
 background: var(--defaultBtnBgColor);
 border: none;
 border-radius: 15px;
+margin-right: 20px;
+padding: 15px 25px;
 
 :hover{
     background: var(--hoverBtnBgColor);

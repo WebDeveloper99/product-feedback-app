@@ -26,8 +26,8 @@ height: 100px;
 margin: 0 auto;
 padding: 0 25px;
 border-radius: 15px;
-/* background: var(--navbarBgColor); */
-color: var(--titleColor);
+background: var(--navbarBgColor);
+/* color: var(--titleColor); */
 align-items: center;
 
 `

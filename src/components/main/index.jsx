@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import {
   Container,
   WrapperItem,
@@ -21,6 +21,23 @@ const Main = () => {
   }
 
 
+  const [click, setClick] = useState(1)
+  var [like, setLike] = useState(true)
+
+  const LikeDisLike=(feedback_id)=>{
+    
+    const newData = sugg_mock.map((value)=> value.feedback_id == feedback_id 
+    ?  { ...value, feedback_like : value.feedback_like + click } 
+    : value)
+
+    
+    
+    setSugg_Mock(newData)
+    setClick(-1 * click)
+    
+  }
+
+
 
   return (
     <React.Fragment>
@@ -29,7 +46,7 @@ const Main = () => {
           return (
             <WrapperItem key={feedback_id} >
               <LikeBar>
-                <LikeBtn>
+                <LikeBtn onClick={()=>LikeDisLike(feedback_id)}  >
                   <LikeBtn.LikeIcon className={'icon'} />
                   {feedback_like}
                 </LikeBtn>
@@ -42,7 +59,7 @@ const Main = () => {
                   {feedback_description}
                 </Discreption>
                 <DataType>
-                  <DataType.Btn>{catecory_name}</DataType.Btn>
+                  <DataType.Btn >{catecory_name}</DataType.Btn>
                 </DataType>
               </DataBar>
               <MessageBar>

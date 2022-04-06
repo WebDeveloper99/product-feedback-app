@@ -54,7 +54,6 @@ const Navbar = () => {
     // }
 
   }
-  console.log(sugg_mock, 'sugg');
 
   function onSearch(val) {
     // console.log('search:', val)
