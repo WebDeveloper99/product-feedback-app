@@ -126,17 +126,13 @@ const FeedbackDetail = () => {
                 <CommentMain>
                   <CommentMain.Title>
                     <CommentUser>
-                      <CommentUser.Name>Eldor</CommentUser.Name>
-                      <CommentUser.Email>@gmail</CommentUser.Email>
+                      <CommentUser.Name>{item.User.name}</CommentUser.Name>
+                      <CommentUser.Email>{item.User.username}</CommentUser.Email>
                     </CommentUser>
                     <CommentReply>Reply</CommentReply>
                   </CommentMain.Title>
                   <CommentMain.Desc>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Obcaecati, nihil cumque ullam architecto sint quia saepe
-                    aspernatur nemo. Incidunt explicabo id facere similique
-                    voluptatibus temporibus, cumque nisi necessitatibus in
-                    minima!
+                    {item.Feedback.feedback_description}
                   </CommentMain.Desc>
                 </CommentMain>
               </CommentItem>
