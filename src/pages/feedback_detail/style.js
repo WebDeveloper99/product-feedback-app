@@ -1,6 +1,6 @@
 
 import styled from "styled-components"
-import { Button } from "antd"
+import { Button, Input } from "antd"
 import { CaretUpOutlined as up } from '@ant-design/icons';
 import { ReactComponent as msg } from '../../assets/icons/msg.svg';
 
@@ -227,6 +227,7 @@ background: var(--bgColor);
 margin-top: 30px;
 padding: 30px 0 0 50px ;
 border-bottom: 2px solid lightgray;
+border-radius: 15px;
 color: #000;
 
 `
@@ -271,7 +272,7 @@ border-radius: 50%;
 export const CommentMain = styled.div`
 display: flex;
 flex-direction: column;
-padding: 15px;
+padding: 15px 30px 0 0;
 flex: 9;
 
 `
@@ -294,8 +295,9 @@ padding: 20px;
 
 `
 
-export const CommentReply = styled.div`
+export const CommentReply = styled.label`
 display: flex;
+cursor: pointer;
 font-weight: 600;
 font-size: 18px;
 line-height: 22px;
@@ -364,3 +366,86 @@ justify-content: center;
 
 `
 
+// ------------------------------------------------add comment--------------
+
+
+
+
+export const AddCommentWrapper = styled.div`
+display: flex;
+flex-direction: column;
+width: 100%;
+background: var(--bgColor);
+margin-top: 30px;
+padding: 30px 0 0 50px ;
+align-items: center;
+justify-content: center;
+border-radius: 15px;
+
+`
+
+
+export const AddComment = styled.div`
+display: flex;
+flex-direction: column;
+width: 90%;
+
+`
+
+AddComment.Title = styled.div`
+display: flex;
+margin-bottom: 30px;
+font-weight: 700;
+font-size: 24px;
+line-height: 28px;
+color: var(--titleColor);
+
+`
+
+
+AddComment.Input = styled(Input.TextArea)`
+display: flex;
+font-size: 18px;
+border-radius: 5px;
+height: 100px!important;
+background: var(--bodyColor);
+
+`
+// ----------------------------------------------------------------
+export const BtnGroup = styled.div`
+display: flex;
+width: 90%;
+align-items: center;
+justify-content: space-between;
+margin: 40px 0;
+
+`
+
+
+export const Character = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 500;
+font-size: 18px;
+line-height: 28px;
+color: var(--titleColor);
+
+`
+
+
+
+export const AddBtn = styled(Button)`
+display: flex;
+color: white;
+width: ${({width})=> width ? width : `180px`};
+height: ${({height})=> height ? height : `50px`};
+background-color: var(--btnBgColor);
+border-radius: 10px;
+font-weight: 700;
+font-size: 18px;
+align-items: center!important;
+justify-content : center!important;
+
+
+`

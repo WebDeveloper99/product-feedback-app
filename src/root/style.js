@@ -6,6 +6,6 @@ display: flex;
 position: relative;
 width: 1920px;
 margin: 0 auto;
-padding: 50px 165px 120px 165px;
+padding: 30px 165px 120px 165px;
 
 `

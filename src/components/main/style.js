@@ -2,15 +2,32 @@ import styled from "styled-components"
 import { NavLink } from 'react-router-dom'
 import { CaretUpOutlined as up } from '@ant-design/icons';
 import { ReactComponent as msg } from '../../assets/icons/msg.svg';
+import { keyframes } from "styled-components";
 
 
 
 export const Container = styled.div`
+border-top: 5px solid var(--navbarBgColor);
+border-bottom: 5px solid var(--navbarBgColor);
+border-radius: 10px;
 display: flex;
 flex-direction: column;
 justify-content: start;
 margin: 130px 0 0 50px;
 width: 1200px;
+height: 85vh;
+overflow-y: scroll;
+::-webkit-scrollbar{
+    width: 15px;
+    overflow-y: hidden;
+}
+::-webkit-scrollbar-thumb{
+    border: 2px solid var(--bodyColor);
+    background: var(--navbarBgColor);
+    border-radius: 10px;
+}
+
+
 
 `
 
@@ -92,6 +109,8 @@ line-height: 26px;
 color: var(--titleColor);
 
 `
+
+
 export const Discreption = styled.div`
 display: flex;
 margin: 8px 0 16px 0;

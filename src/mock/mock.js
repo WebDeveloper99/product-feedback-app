@@ -5,7 +5,7 @@ export const suggData = [
     {
         feedback_id: 1,
         feedback_title: 'Add tags for solutions',
-        feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+        feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem ',
         feedback_status: 1,
         feedback_like: 53,
         catecory_id: 9,
@@ -38,7 +38,7 @@ export const suggData = [
         feedback_id: 4,
         feedback_title: 'Add tags for solutions',
         feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
-        feedback_status: 1,
+        feedback_status: 2,
         feedback_like: 78,
         catecory_id: 9,
         catecory_name: 'bug',
@@ -85,7 +85,7 @@ export const commentData = [
         Feedback: {
             feedback_id: 1,
             feedback_title: 'Add tags for solutions',
-            feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem',
+            feedback_description: 'lorem lorem lorem lorem lorem lorem lorem lorem ',
             feedback_status: 3,
             feedback_like: 7,
             createdAt: "",
