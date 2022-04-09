@@ -49,7 +49,7 @@ const FeedbackDetail = () => {
 
   useEffect(() => {
     suggSort()
-  }, [])
+  }, [localStor_feedbackId])
 
   // --------------------suggData-----------------------------<<<
 
@@ -67,26 +67,41 @@ const FeedbackDetail = () => {
 
   useEffect(() => {
     commentSort()
-  }, [])
+  }, [localStor_feedbackId])
 
-// ---------------------------------set, get Comment------------------
+  // ---------------------------------set, get Comment------------------
 
-  const replayComment=(replay)=>{
-    console.log(replay.User.username);
-    // localStorage.setItem("replayUsername",replay.User.username);
-    document.getElementById('replayCommentInput').innerHTML = replay.User.username;
 
+
+
+  const replyComment = (reply) => {
+    localStorage.setItem('replyComment', reply?.User.username)
+    document.getElementById('replyCommentInput').innerText =
+      reply?.User.username
   }
 
+  // async function postcomment() {
+  //   let replyPostComment = document.getElementById("replyCommentInput").value;
+  //   console.log(replyPostComment,'replyPostComment');
 
-  var [getComment, setGetcomment] = useState('')
-
-  const getPostCommen=()=>{
-    getComment = document.getElementById('replayCommentInput').value;
-    setGetcomment(getComment);
-
-  }
-
+  //   await fetch('https://bookuz.kahero.uz/admin-api//book/paging', {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json, text/plain, */*',
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+        
+  //     }),
+  //   })
+  //     .then((response) => {
+  //       return response.json()
+  //     })
+  //     .then((data) => {
+  //       console.log(data)
+  //     })
+  //     .catch((err) => console.log(err))
+  // }
 
   // ---------------------commentData---------------------------<<<
 
@@ -154,17 +169,23 @@ const FeedbackDetail = () => {
                         {item.User.username}
                       </CommentUser.Email>
                     </CommentUser>
-                    <CommentReply onClick={()=>replayComment(item) } htmlFor={'replayCommentInput'} tabindex='12' >Reply</CommentReply>
+                    <CommentReply
+                      onClick={() => replyComment(item)}
+                      htmlFor={'replyCommentInput'}
+                      tabindex="12"
+                    >
+                      Reply
+                    </CommentReply>
                   </CommentMain.Title>
                   <CommentMain.Desc>
                     {item.Feedback.feedback_description}
                   </CommentMain.Desc>
                 </CommentMain>
               </CommentItem>
-              <PostReplyWrapper>
-                <PostReplyWrapper.Text>
+              <PostReplyWrapper className="postCommentWrapp">
+                <PostReplyWrapper.Text className="postComment">
                   Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  typesetting industry2.
                 </PostReplyWrapper.Text>
                 <PostReplyWrapper.Btn>
                   <AddButton width={'150px'}>Post Reply</AddButton>
@@ -177,11 +198,11 @@ const FeedbackDetail = () => {
       <AddCommentWrapper>
         <AddComment>
           <AddComment.Title>Add Comment</AddComment.Title>
-          <AddComment.Input id='replayCommentInput'></AddComment.Input>
+          <AddComment.Input id="replyCommentInput"></AddComment.Input>
         </AddComment>
         <BtnGroup>
           <Character>250 Characters left</Character>
-          <AddBtn onClick={()=>getPostCommen()} >Post Comment</AddBtn>
+          <AddBtn >Post Comment</AddBtn>
         </BtnGroup>
       </AddCommentWrapper>
     </Container>

@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { Button, Input } from "antd"
 import { CaretUpOutlined as up } from '@ant-design/icons';
 import { ReactComponent as msg } from '../../assets/icons/msg.svg';
+import TextArea from "antd/lib/input/TextArea";
 
 
 
@@ -411,6 +412,8 @@ height: 100px!important;
 background: var(--bodyColor);
 
 `
+
+
 // ----------------------------------------------------------------
 export const BtnGroup = styled.div`
 display: flex;
