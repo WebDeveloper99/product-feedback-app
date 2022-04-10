@@ -80,28 +80,6 @@ const FeedbackDetail = () => {
       reply?.User.username
   }
 
-  // async function postcomment() {
-  //   let replyPostComment = document.getElementById("replyCommentInput").value;
-  //   console.log(replyPostComment,'replyPostComment');
-
-  //   await fetch('https://bookuz.kahero.uz/admin-api//book/paging', {
-  //     method: 'POST',
-  //     headers: {
-  //       Accept: 'application/json, text/plain, */*',
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-        
-  //     }),
-  //   })
-  //     .then((response) => {
-  //       return response.json()
-  //     })
-  //     .then((data) => {
-  //       console.log(data)
-  //     })
-  //     .catch((err) => console.log(err))
-  // }
 
   // ---------------------commentData---------------------------<<<
 
@@ -147,7 +125,7 @@ const FeedbackDetail = () => {
       })}
       <CommentWrapper>
         <CommentWrapper.Theme>
-          {sugg_data[0].comment_count} Comments
+          {} Comments
         </CommentWrapper.Theme>
         {comment_data.map((item) => {
           return (
@@ -156,7 +134,7 @@ const FeedbackDetail = () => {
                 <CommentAvatarWrapper>
                   <CommentAvatar>
                     <img
-                      src={`${item.User.user_profile_img}`}
+                      src={`https://feedback-app-1.herokuapp.com/${item.User.user_profile_img}`}
                       alt="comment avatar"
                     />
                   </CommentAvatar>

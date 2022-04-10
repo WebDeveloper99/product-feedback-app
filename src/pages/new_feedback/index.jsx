@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Select } from 'antd'
 import { CaretLeftOutlined } from '@ant-design/icons'
@@ -15,15 +15,77 @@ import {
   BtnGroup,
   Link,
   AddBtn,
-  CancelBtn
+  CancelBtn,
 } from './style'
+import { useEffect } from 'react'
 
 const NewFeedback = () => {
+  // ---------------------------------------------------------------------------
+
+  const [category, setCategory] = useState([])
+
+  useEffect(() => {
+    fetch('https://feedback-app-1.herokuapp.com/categories')
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        setCategory(data)
+      })
+      .catch((err) => console.log(err))
+  }, [])
+
+  // ---------------------------------------------------------------------------
+
+
+  const postFeedback = () => {
+
+    fetch('https://feedback-app-1.herokuapp.com/feedbacks', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        feedback_title: title,
+        catecory_id: cat,
+        feedback_description: desc,
+      }),
+    })
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        console.log(data)
+      })
+      .catch((err) => console.log(err))
+  }
+
+  // ---------------------------------------------------------------------------
+
+
   const navigate = useNavigate()
   const { Option } = Select
 
-  function handleChange(value) {
-    // console.log(`selected ${value}`)
+  const [cat, setCat] = useState(null)
+  
+  const handleChange =(value)=> {
+    console.log(`selected ${value}`)
+    setCat(value)
+  }
+
+
+  const [title, setTitle] = useState(null)
+
+  const handleTitle = (e) => {
+    setTitle(e.target.value)
+  }
+
+
+  const [desc, setDesc] = useState(null)
+
+  const handleDesc = (e) => {
+    setDesc(e.target.value)
   }
 
   return (
@@ -31,7 +93,7 @@ const NewFeedback = () => {
       <NavContainer>
         <TextWrapper>
           <TextWrapper.TextItem onClick={() => navigate(-1)}>
-           <CaretLeftOutlined/> Go Back
+            <CaretLeftOutlined /> Go Back
           </TextWrapper.TextItem>
         </TextWrapper>
       </NavContainer>
@@ -43,7 +105,9 @@ const NewFeedback = () => {
           <FeedbackTitle.Desc>
             Add a short, descriptive headline
           </FeedbackTitle.Desc>
-          <FeedbackTitle.Input></FeedbackTitle.Input>
+          <FeedbackTitle.Input
+            onChange={handleTitle}
+          ></FeedbackTitle.Input>
         </FeedbackTitle>
         <Category>
           <Category.Title>Category</Category.Title>
@@ -54,11 +118,15 @@ const NewFeedback = () => {
             defaultValue="Feature"
             onChange={handleChange}
           >
-            <Option value="feature">Feature</Option>
-            <Option value="ui">UI</Option>
-            <Option value="ux">UX</Option>
-            <Option value="enhancement">Enhancement</Option>
-            <Option value="bug">Bug</Option>
+            {category.map((item) => {
+              return (
+                <React.Fragment key={item.category_id}>
+                  <Option value={`${item.category_id}`}>
+                    {item.category_name}
+                  </Option>
+                </React.Fragment>
+              )
+            })}
           </Select>
         </Category>
         <FeedbackDetail>
@@ -67,11 +135,15 @@ const NewFeedback = () => {
             Include any specific comments on what should be improved, added,
             etc.
           </FeedbackDetail.Desc>
-          <FeedbackDetail.Input></FeedbackDetail.Input>
+          <FeedbackDetail.Input
+            onClick={(e) => handleDesc(e)}
+          ></FeedbackDetail.Input>
         </FeedbackDetail>
         <BtnGroup>
-          <CancelBtn onClick={() => navigate('/')} width={'100px'} bgColor={'#3A4374'}>Cancel</CancelBtn>
-          <AddBtn onClick={() => navigate('/')} >Add Feedback</AddBtn>
+          <CancelBtn onClick={() => navigate('/')} width={'100px'}>
+            Cancel
+          </CancelBtn>
+          <AddBtn onClick={() => postFeedback()}>Add Feedback</AddBtn>
         </BtnGroup>
       </Wrapper>
     </Container>

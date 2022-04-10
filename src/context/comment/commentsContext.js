@@ -2,8 +2,8 @@
 
 
 
-import React, { createContext, useState } from "react";
-import { commentData } from '../../mock/mock';
+import React, { createContext, useEffect, useState } from "react";
+// import { commentData } from '../../mock/mock';
 
 export const CommentsContext = createContext()
 
@@ -11,25 +11,19 @@ export const CommentsContext = createContext()
 
 export const CommentsContextProvider = ({ children }) => {
 
-//     async function zapros() {
+    const [comment_mock, setComments_Mock] = useState([])
 
 
-//         await fetch('https://feedback-app-1.herokuapp.com/comments')
-//             .then((response) => {
-//                 return response.json();
-//             })
-//             .then((data) => {
-//                 console.log(data,'api');
-//             })
-//             .catch((err) => console.log(err));
-
-//     }
-
-//    console.log(zapros()); 
-
-    const [comment_mock, setComments_Mock] = useState(commentData)
-
-
+    useEffect(()=>{
+        fetch('https://feedback-app-1.herokuapp.com/comments')
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            setComments_Mock(data)
+        })
+        .catch((err) => console.log(err))
+    },[])
     return (
         <CommentsContext.Provider value={[comment_mock, setComments_Mock]} >
             {children}

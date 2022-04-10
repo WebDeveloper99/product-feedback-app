@@ -23,23 +23,23 @@ const Navbar = () => {
 
     
   
-  const sortbynavbar=(value)=>{
+  // const sortbynavbar=(value)=>{
 
-    // let sortBy = localStorage.getItem("sortBy")
+  //   // let sortBy = localStorage.getItem("sortBy")
 
-    switch(value){
-      case 'mostUpvotes' :  setSugg_Mock(sugg_mock.sort((a,b)=> a.feedback_like - b.feedback_like))
-      break;
-      case 'lastUpvotes' :  setSugg_Mock(sugg_mock.sort((a,b)=> b.feedback_like - a.feedback_like))
-      break;
-      case 'mostComments' : setSugg_Mock(sugg_mock.sort((a,b)=> a.comment_count - b.comment_count))
-      break;
-      case 'lastComments' :  setSugg_Mock(sugg_mock.sort((a,b)=> b.comment_count - a.comment_count))
-      break;
-    }
-  }
+  //   switch(value){
+  //     case 'mostUpvotes' :  setSugg_Mock(sugg_mock.sort((a,b)=> a.feedback_like - b.feedback_like))
+  //     break;
+  //     case 'lastUpvotes' :  setSugg_Mock(sugg_mock.sort((a,b)=> b.feedback_like - a.feedback_like))
+  //     break;
+  //     case 'mostComments' : setSugg_Mock(sugg_mock.sort((a,b)=> a.comment_count - b.comment_count))
+  //     break;
+  //     case 'lastComments' :  setSugg_Mock(sugg_mock.sort((a,b)=> b.comment_count - a.comment_count))
+  //     break;
+  //   }
+  // }
 
-  sortbynavbar()
+  // sortbynavbar()
 
     // switch(value){
     //   case 'mostUpvotes' :  localStorage.setItem("mostUpvotes", value)
