@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {
   Container,
   WrapperItem,
@@ -12,15 +12,28 @@ import {
 } from './style'
 
 import { SuggestionsContext } from '../../context/suggestion/SuggContext'
+import Sort from '../../context/SortBy'
 
 const Main = () => {
 
   const [sugg_mock, setSugg_Mock] = useContext(SuggestionsContext)
   const [sugg_data, setSugg_Data] = useState(sugg_mock)
-
+  const [sortBy] = useContext(Sort)
   const setFeedbackIdtoLocalStorage = (feedback_id) => {
     localStorage.setItem('feedback_id', feedback_id)
   }
+  useEffect(()=>{
+      switch(sortBy){
+        case 'mostUpvotes' :  setSugg_Data(sugg_data.sort((a,b)=> a.feedback_like - b.feedback_like))
+        break;
+        case 'lastUpvotes' :  setSugg_Data(sugg_data.sort((a,b)=> b.feedback_like - a.feedback_like))
+        break;
+        case 'mostComments' : setSugg_Data(sugg_data.sort((a,b)=> a.comment_count - b.comment_count))
+        break;
+        case 'lastComments' :   setSugg_Data(sugg_data.sort((a,b)=> b.comment_count - a.comment_count))
+        break;
+      }
+  },[sortBy])
 
   const [click, setClick] = useState(1)
 
@@ -30,9 +43,8 @@ const Main = () => {
         ? { ...value, feedback_like: value.feedback_like + click }
         : value,
     )
-
     setClick(-1 * click)
-    setSugg_Data(newData)
+    // setSugg_Data(newData)
   }
 
   return (

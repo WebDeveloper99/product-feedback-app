@@ -3,10 +3,7 @@
 
 
 import React, { createContext, useEffect, useState } from "react";
-// import { suggData } from '../../mock/mock';
-
 export const SuggestionsContext = createContext()
-
 
 export const SuggestionsContextProvider = ({ children }) => {
 
@@ -23,9 +20,6 @@ export const SuggestionsContextProvider = ({ children }) => {
             .catch((err) => console.log(err))
 
     }, [])
-
-
-
 
     return (
         <SuggestionsContext.Provider value={[sugg_mock, setSugg_Mock]} >
