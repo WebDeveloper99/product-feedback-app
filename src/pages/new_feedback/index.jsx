@@ -37,9 +37,7 @@ const NewFeedback = () => {
 
   // ---------------------------------------------------------------------------
 
-
   const postFeedback = () => {
-
     fetch('https://feedback-app-1.herokuapp.com/feedbacks', {
       method: 'POST',
       headers: {
@@ -56,33 +54,30 @@ const NewFeedback = () => {
         return response.json()
       })
       .then((data) => {
-        console.log(data)
+        alert(data.message)
       })
       .catch((err) => console.log(err))
   }
 
   // ---------------------------------------------------------------------------
 
-
   const navigate = useNavigate()
   const { Option } = Select
 
-  const [cat, setCat] = useState(null)
-  
-  const handleChange =(value)=> {
+  const [cat, setCat] = useState('')
+
+  const handleChange = (value) => {
     console.log(`selected ${value}`)
     setCat(value)
   }
 
-
-  const [title, setTitle] = useState(null)
+  const [title, setTitle] = useState('')
 
   const handleTitle = (e) => {
     setTitle(e.target.value)
   }
 
-
-  const [desc, setDesc] = useState(null)
+  const [desc, setDesc] = useState('')
 
   const handleDesc = (e) => {
     setDesc(e.target.value)
@@ -106,6 +101,7 @@ const NewFeedback = () => {
             Add a short, descriptive headline
           </FeedbackTitle.Desc>
           <FeedbackTitle.Input
+            rules={[{ required: true, message: 'Please input your password!' }]}
             onChange={handleTitle}
           ></FeedbackTitle.Input>
         </FeedbackTitle>
@@ -140,7 +136,11 @@ const NewFeedback = () => {
           ></FeedbackDetail.Input>
         </FeedbackDetail>
         <BtnGroup>
-          <CancelBtn onClick={() => navigate('/')} width={'100px'}>
+          <CancelBtn
+            onClick={() => navigate('/')}
+            width={'100px'}
+            bgColor={'#4661E6'}
+          >
             Cancel
           </CancelBtn>
           <AddBtn onClick={() => postFeedback()}>Add Feedback</AddBtn>

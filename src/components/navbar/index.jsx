@@ -4,18 +4,18 @@ import { Outlet, Navigate, useNavigate } from 'react-router-dom'
 import { BtnWrapper, Container, TextWrapper, AddButton } from './style'
 
 import { SuggestionsContext } from '../../context/suggestion/SuggContext'
-import Sort from '../../context/SortBy'
+import { SortVoetsContext } from '../../context/sortBy/sortByContext'
 
 const Navbar = () => {
   const navigate = useNavigate()
 
-  const [sugg_mock, setSugg_Mock] = useContext(SuggestionsContext)
-  const [_, setSortBy] = useContext(Sort)
+  const [sugg_mock] = useContext(SuggestionsContext)
+  const [sortByVoets, setSortByVoets] = useContext(SortVoetsContext)
 
   const { Option } = Select
 
   function onChange(value) {
-    setSortBy(value)
+    setSortByVoets(value)
   }
 
   function onSearch(val) {
@@ -43,9 +43,9 @@ const Navbar = () => {
               }
             >
               <Option value="mostUpvotes">Most Upvotes</Option>
-              <Option value="lastUpvotes">Least Upvotes</Option>
+              <Option value="leastUpvotes">Least Upvotes</Option>
               <Option value="mostComments">Most Comments</Option>
-              <Option value="lastComments">Last Comments</Option>
+              <Option value="leastComments">Least Comments</Option>
             </Select>
           </TextWrapper.SortBar>
         </TextWrapper>

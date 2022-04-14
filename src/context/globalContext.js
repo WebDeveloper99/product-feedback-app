@@ -1,20 +1,22 @@
 import React, { createContext } from 'react'
 import { SuggestionsContextProvider } from './suggestion/SuggContext'
 import { CommentsContextProvider } from './comment/commentsContext'
-import { SortBy } from './SortBy'
+import { SortByVoetsProvider, SortCategoryProvider } from './sortBy/sortByContext'
 
 export const GlobalContext = createContext()
 
 export const GlobalContextProvider = ({ children }) => {
   return (
     <GlobalContext.Provider value={''}>
-      <SortBy>
-        <SuggestionsContextProvider>
-          <CommentsContextProvider>
-            {children}
-          </CommentsContextProvider>
-        </SuggestionsContextProvider>
-      </SortBy>
+      <SortByVoetsProvider>
+        <SortCategoryProvider>
+          <SuggestionsContextProvider>
+            <CommentsContextProvider>
+              {children}
+            </CommentsContextProvider>
+          </SuggestionsContextProvider>
+        </SortCategoryProvider>
+      </SortByVoetsProvider>
     </GlobalContext.Provider>
   )
 }

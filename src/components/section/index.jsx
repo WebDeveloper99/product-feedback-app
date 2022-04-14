@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { SuggestionsContext } from '../../context/suggestion/SuggContext'
+import { SortCategoryContext } from '../../context/sortBy/sortByContext'
 import {
   Container,
   SectionHead,
@@ -14,6 +15,13 @@ import {
 
 const Section = () => {
   
+  const [sortByCategory, setSortByCategory] =useContext(SortCategoryContext)
+
+  const sortCategory=(id)=>{
+    setSortByCategory(id)
+  }
+
+
   const [sugg_mock, setSugg_Mock] = useContext(SuggestionsContext)
   const [category, setCategory] = useState([])
 
@@ -58,11 +66,12 @@ const Section = () => {
           </SectionHead.Title>
         </SectionHead>
         <SectionBody>
+        <AntButton onClick={()=>sortCategory(0)} >All</AntButton>
           {
             category.map((item)=>{
               return(
                 <React.Fragment key={item.category_id}>
-                  <AntButton>{item.category_name}</AntButton>
+                  <AntButton onClick={()=>sortCategory(item.category_id)} >{item.category_name}</AntButton>
                 </React.Fragment>
               )
             })

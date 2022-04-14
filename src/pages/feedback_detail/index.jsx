@@ -71,15 +71,11 @@ const FeedbackDetail = () => {
 
   // ---------------------------------set, get Comment------------------
 
-
-
-
   const replyComment = (reply) => {
     localStorage.setItem('replyComment', reply?.User.username)
     document.getElementById('replyCommentInput').innerText =
       reply?.User.username
   }
-
 
   // ---------------------commentData---------------------------<<<
 
@@ -124,9 +120,7 @@ const FeedbackDetail = () => {
         )
       })}
       <CommentWrapper>
-        <CommentWrapper.Theme>
-          {} Comments
-        </CommentWrapper.Theme>
+        <CommentWrapper.Theme>{} Comments</CommentWrapper.Theme>
         {comment_data.map((item) => {
           return (
             <React.Fragment key={item.comment_id}>
@@ -180,7 +174,7 @@ const FeedbackDetail = () => {
         </AddComment>
         <BtnGroup>
           <Character>250 Characters left</Character>
-          <AddBtn >Post Comment</AddBtn>
+          <AddBtn>Post Comment</AddBtn>
         </BtnGroup>
       </AddCommentWrapper>
     </Container>

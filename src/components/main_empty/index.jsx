@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import { Empty } from 'antd';
 import { Container, NoDataImg, AddButton, Add } from './style'
 
-const MainEmpty = () => {
+const MainEmpty = ({
+  margin
+}) => {
   return (
     <React.Fragment>
-      <Container>
+      <Container margin >
         <Empty
         image={<NoDataImg/>}
         description = {false}
