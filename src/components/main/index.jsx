@@ -127,7 +127,7 @@ const Main = () => {
             },
           )
         ) : (
-          <MainEmpty margin={'10px 0 0 0'} />
+          <MainEmpty m='0 0 0 0' />
         )}
       </Container>
     </React.Fragment>

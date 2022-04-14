@@ -81,9 +81,13 @@ const EditFeedback = () => {
     ChangeStatus()
   },[])
 
-  function handleChangeCategory(value) {
-    console.log(`selected category ${value}`)
-    setCategoryValue(value)
+// ------------------------by edit----------------->>>
+
+function handleChangeCategory(value) {
+  console.log(`selected category ${value}`)
+  category.map((item)=>{
+    return setCategoryValue(item.category_name == value && item.catecory_id)
+  })
   }
 
 
@@ -93,8 +97,10 @@ const EditFeedback = () => {
       case 'planned':  setStatusValue(1) 
       case 'inProgress':  setStatusValue(2) 
       case 'live':  setStatusValue(3) 
+      default : setStatusValue(1)
     }
   }
+  // ------------------------by edit-----------------<<<
 
   // --------------------begin delete request-----------------------
 
@@ -124,11 +130,14 @@ const EditFeedback = () => {
   // --------------------end delete request-----------------------
 
 
-  // --------------------end delete request-----------------------
+  // --------------------begin edit request-----------------------
 
 
   
   const EditeFeedback = () => {
+    console.log(titleValue,'titleValue');
+    console.log(statusValue,'statusValue');
+    console.log(categoryValue,'categoryValue');
     fetch(`https://feedback-app-1.herokuapp.com/feedbacks/${sugg_data[0].feedback_id}`, {
       method: 'PUT',
       headers: {
@@ -148,11 +157,11 @@ const EditFeedback = () => {
         console.log(data);
         alert(data.message)
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err,'xato keldi jigarim !!!'))
   }
 
 
-  // --------------------end delete request-----------------------
+  // --------------------end edit request-----------------------
 
   return (
     <Container>

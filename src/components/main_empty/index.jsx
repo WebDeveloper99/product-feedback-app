@@ -4,11 +4,11 @@ import { Empty } from 'antd';
 import { Container, NoDataImg, AddButton, Add } from './style'
 
 const MainEmpty = ({
-  margin
+  m
 }) => {
   return (
     <React.Fragment>
-      <Container margin >
+      <Container m={m} >
         <Empty
         image={<NoDataImg/>}
         description = {false}

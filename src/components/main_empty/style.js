@@ -8,7 +8,7 @@ export const Container = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-margin: ${({margin})=> margin ? margin : "130px 0 0 50px"};
+margin: ${({m})=> m ? m : "130px 0 0 50px"};
 width: 1200px;
 border-radius: 15px;
 background: var(--bgColor);

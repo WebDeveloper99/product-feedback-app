@@ -10,7 +10,6 @@ flex-direction: column;
 margin: 0 auto;
 width: 1490px;
 
-
 `
 
 
@@ -73,6 +72,19 @@ font-size: 18px;
 
 export const BodyContainer = styled.div`
 display: flex;
+height: 80vh;
+border-bottom: 5px solid var(--navbarBgColor);
+border-radius: 10px;
+overflow-y: scroll;
+::-webkit-scrollbar{
+    width: 15px;
+    overflow-y: hidden;
+}
+::-webkit-scrollbar-thumb{
+    border: 2px solid var(--bodyColor);
+    background: var(--navbarBgColor);
+    border-radius: 10px;
+}
 
 `
 // --------------------------------Left------------------------------
@@ -186,7 +198,7 @@ cursor: pointer;
 }
 
 &:focus{
-    background:  #4661E6;
+    background: #4661E6;
     color: white;
 }
 

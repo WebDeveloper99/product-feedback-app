@@ -54,6 +54,7 @@ const NewFeedback = () => {
         return response.json()
       })
       .then((data) => {
+        console.log(data.data);
         alert(data.message)
       })
       .catch((err) => console.log(err))
@@ -77,7 +78,7 @@ const NewFeedback = () => {
     setTitle(e.target.value)
   }
 
-  const [desc, setDesc] = useState('')
+  const [desc, setDesc] = useState('discription kiritilmadi')
 
   const handleDesc = (e) => {
     setDesc(e.target.value)
