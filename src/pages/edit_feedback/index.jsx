@@ -99,7 +99,7 @@ const EditFeedback = () => {
   // --------------------begin delete request-----------------------
 
   const deleteFeedback = () => {
-    fetch('https://feedback-app-1.herokuapp.com/feedbacks', {
+    fetch(`https://feedback-app-1.herokuapp.com/feedbacks/${sugg_data[0].feedback_id}`, {
       method: 'DELETE',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -115,10 +115,42 @@ const EditFeedback = () => {
         return response.json()
       })
       .then((data) => {
+        console.log(data);
         alert(data.message)
       })
       .catch((err) => console.log(err))
   }
+
+  // --------------------end delete request-----------------------
+
+
+  // --------------------end delete request-----------------------
+
+
+  
+  const EditeFeedback = () => {
+    fetch(`https://feedback-app-1.herokuapp.com/feedbacks/${sugg_data[0].feedback_id}`, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        feedback_title: titleValue,
+        feedback_status: statusValue,
+        catecory_id: categoryValue,
+      }),
+    })
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        console.log(data);
+        alert(data.message)
+      })
+      .catch((err) => console.log(err))
+  }
+
 
   // --------------------end delete request-----------------------
 
@@ -200,7 +232,7 @@ const EditFeedback = () => {
           >
             Cancel
           </CancelBtn>
-          <AddBtn onClick={() => navigate('/')}>Add Feedback</AddBtn>
+          <AddBtn onClick={() => EditeFeedback()}>Edite Feedback</AddBtn>
         </BtnGroup>
       </Wrapper>
     </Container>
