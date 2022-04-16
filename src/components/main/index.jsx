@@ -30,7 +30,6 @@ const Main = () => {
 
   // ----------------------begin sort voets----------------------------------
   useEffect(() => {
-    console.log(sortByVoets, 'oo')
     switch (sortByVoets) {
       case 'mostUpvotes':
         setSugg_Data(
@@ -60,7 +59,6 @@ const Main = () => {
   // ----------------------begin sort category----------------------------------
 
   useEffect(() => {
-    console.log('id=', sortByCategory)
     if (sortByCategory == 0) {
       return setSugg_Data(sugg_mock)
     } else {
@@ -76,13 +74,35 @@ const Main = () => {
   const [click, setClick] = useState(1)
 
   const LikeDisLike = (feedback_id) => {
+
+    localStorage.setItem('like',feedback_id)
+
     const newData = sugg_data.map((value) =>
-      value.feedback_id == feedback_id
-        ? { ...value, feedback_like: value.feedback_like + click }
+    value.feedback_id == feedback_id
+        ? fetch('https://feedback-app-1.herokuapp.com/feedbacks',{
+          method: 'PUT',
+          headers: { 
+            'Content-Type': 'application/json' 
+          },
+          body: JSON.stringify({ 
+            feedback_id: feedback_id,
+            feedback_title:value.feedback_title,
+            feedback_like: value.feedback_like + click, 
+          })
+        })
+        .then((res)=>res.json())
+        .then((res)=>newData.push(res.status == 200 && value))
+        .catch((err)=>console.log(err))
         : value,
     )
-    setClick(-1 * click)
+    
+    setClick(-1*click)
+    useEffect(()=>{
+      setClick(1)
+    },[localStorage.getItem('like')])
+    
     setSugg_Data(newData)
+
   }
 
   return (

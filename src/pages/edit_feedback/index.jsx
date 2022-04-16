@@ -86,7 +86,7 @@ const EditFeedback = () => {
 function handleChangeCategory(value) {
   console.log(`selected category ${value}`)
   category.map((item)=>{
-    return setCategoryValue(item.category_name == value && item.catecory_id)
+    return setCategoryValue(item.category_name === value && item.catecory_id)
   })
   }
 
@@ -135,9 +135,6 @@ function handleChangeCategory(value) {
 
   
   const EditeFeedback = () => {
-    console.log(titleValue,'titleValue');
-    console.log(statusValue,'statusValue');
-    console.log(categoryValue,'categoryValue');
     fetch(`https://feedback-app-1.herokuapp.com/feedbacks/${sugg_data[0].feedback_id}`, {
       method: 'PUT',
       headers: {
