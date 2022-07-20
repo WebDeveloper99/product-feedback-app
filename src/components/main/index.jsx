@@ -5,10 +5,10 @@ import {
   LikeBar,
   LikeBtn,
   DataBar,
-  MessageBar,
   Link,
   Discreption,
   DataType,
+  MessageBar,
 } from './style'
 
 import { SuggestionsContext } from '../../context/suggestion/SuggContext'

@@ -51,7 +51,7 @@ const NewFeedback = () => {
       }),
     })
       .then((response) => {
-        return response.json()
+        return response
       })
       .then((data) => {
         console.log(data.data);
